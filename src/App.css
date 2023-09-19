@@ -2,7 +2,16 @@
   text-align: center;
 }
 
-.App-logo {
+.Button {
+  width: fit-content;
+  align-self: center;
+}
+
+.processed-text {
+  text-align: left;
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +44,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
