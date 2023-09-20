@@ -7,6 +7,10 @@
   align-self: center;
 }
 
+.button-stack {
+  align-self: center;
+}
+
 .processed-text {
   text-align: left;
 }
