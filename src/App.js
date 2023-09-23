@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
+import "./App.css";
+
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import ClearIcon from "@mui/icons-material/Clear";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import Grid from "@mui/material/Grid";
+import Grow from "@mui/material/Grow";
 import Link from "@mui/material/Link";
 import SendIcon from "@mui/icons-material/Send";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import ClearIcon from "@mui/icons-material/Clear";
-import "./App.css";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Logo from "./logo.png";
 
 const theme = createTheme({
@@ -21,23 +24,47 @@ const theme = createTheme({
     },
     tonalOffset: 0.1,
   },
+  typography: {
+    caption: {
+      fontSize: 14,
+    },
+  },
+  breakpoints: {
+    // need to provide all
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 768,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
 
 function App() {
   const [inputText, setInputText] = useState("");
   const [processedText, setProcessedText] = useState("");
+  const [showCopySuccessMessage, setshowCopySuccessMessage] = useState(false);
 
   const clearText = () => {
     setInputText("");
+    setProcessedText("");
+    setshowCopySuccessMessage(false);
   };
 
   const processText = () => {
     const processed = inputText.replace(/\s+/g, " ").trim();
     setProcessedText(processed);
+    setshowCopySuccessMessage(false);
   };
 
   const copyText = () => {
     navigator.clipboard.writeText(processedText);
+    setshowCopySuccessMessage(true);
+
+    setTimeout(() => {
+      setshowCopySuccessMessage(false);
+    }, 2000);
   };
 
   return (
@@ -66,8 +93,7 @@ function App() {
             />
             <div class="process-text-buttons">
               {/*TODO: abstract out all components*/}
-              {/*TODO: clear processed text as well? "reset" instead of "clear"?
-              move to the right?*/}
+              {/*TODO: "reset" instead of "clear"? move to the right?*/}
               <Button
                 sx={{ mx: 0, my: 2 }}
                 onClick={clearText}
@@ -75,7 +101,7 @@ function App() {
                 color="secondary"
                 startIcon={<ClearIcon />}
               >
-                <Typography variant="button">Clear text</Typography>
+                <Typography variant="button">Clear</Typography>
               </Button>
               <Button
                 sx={{ mx: 0, my: 2 }}
@@ -84,7 +110,7 @@ function App() {
                 disableElevation
                 startIcon={<SendIcon />}
               >
-                <Typography variant="button">Process text</Typography>
+                <Typography variant="button">Process</Typography>
               </Button>
             </div>
           </div>
@@ -115,19 +141,25 @@ function App() {
               multiline
               rows={6}
             />
-            {/*TODO: add copy success message*/}
-            <Button
-              sx={{ mx: 0, my: 2 }}
-              onClick={copyText}
-              variant="contained"
-              disableElevation
-              startIcon={<ContentCopyIcon />}
-            >
-              <Typography variant="button">Copy to clipboard</Typography>
-            </Button>
+            <div className="copy-text">
+              <Button
+                sx={{ mx: 0 }}
+                onClick={copyText}
+                variant="contained"
+                disableElevation
+                startIcon={<ContentCopyIcon />}
+              >
+                <Typography variant="button">Copy to clipboard</Typography>
+              </Button>
+              <Grow in={showCopySuccessMessage}>
+                <Typography sx={{ ml: 1 }} color="grey" variant="caption">
+                  Copied!
+                </Typography>
+              </Grow>
+            </div>
             <footer>
               <p>
-                © 2023 by{" "}
+                © 2023 by&nbsp;
                 <Link
                   href="https://github.com/valerietanhx/copydf"
                   target="_blank"
