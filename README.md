@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# COPYDF
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A tool to format text easily when copy-pasting from PDFs.
 
-## Available Scripts
+# Motivation
 
-In the project directory, you can run:
+I do quite a few readings for school. Sometimes, when I copy-paste text from those
+readings into Google Docs, they go all wonky like this:
 
-### `npm start`
+![Copy-pasted text with poor spacing and paragraphing.](docs/copy-pasted-notes.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+I got so fed up manually deleting those spaces and paragraphs one by one that I decided
+to just make a web app that would do the formatting for me in much fewer clicks.
+And if I was going to make a simple web app, I might as well use it as an opportunity
+to try out some new technologies that I've been meaning to as well :)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Technologies
 
-### `npm test`
+React, Material UI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Progress
 
-### `npm run build`
+- [ ] Dark mode
+- [ ] Add option to correct hyphen spacing
+  - e.g. ensure that _well-formed_ is pasted as _well-formed_, not _well- formed_
+    or _well -formed_
+  - Why an option, not a default?
+    - I personally have use cases where I would not want the hyphen spacings
+      "corrected", e.g. for linguistics readings where hyphens can denote affixes
+      like _re-_ or _-ness_
+- [ ] Add ML to detect and handle further spacing errors, e.g. "whenitcopieslikethis",
+      "o r t h i s"
+- [ ] Abstract out all components into separate folder (this is a small enough project
+      that the ROI on doing so is quite low, but it's good practice!)
+- [ ] Improve labels
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+These to-dos are noted in [App.js](src/App.js) as well.
