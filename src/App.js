@@ -69,13 +69,15 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      {/*TODO: add dark mode option*/}
       <Grid container className="App">
         <Grid item xs={12} md={6} sx={{ bgcolor: "ghostwhite" }} p={4}>
           <img src={Logo} alt="Logo" className="logo" />
           <h1>COPYDF</h1>
           <p>
             You know when you're copy-pasting text from PDFs and the newlines
-            and spaces go all wonky? Yeah. This fixes that.
+            and spaces go all wonky? And then you have to go in and fix them
+            yourself? Yeah. This does that for you.
           </p>
           <p>
             This tool removes all newlines and unnecessary spaces between words.
