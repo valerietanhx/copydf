@@ -1,4 +1,6 @@
-# COPYDF
+# Copydf
+
+<img width="1552" alt="Screenshot 2024-05-31 at 3 37 57 PM" src="https://github.com/valerietanhx/copydf/assets/110474344/4c568283-aac8-476b-9034-2081be4c969d">
 
 A tool to format text easily when copy-pasting from PDFs.
 
